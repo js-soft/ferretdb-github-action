@@ -15,7 +15,7 @@ docker run --network ferretdb --name postgres \
 
 docker run --network ferretdb --name ferretdb \
   -p $FERRETDB_PORT:27017 \
-  -e FERRETDB_POSTGRESQL_URL=postgres://username:password@postgres:5432/ferretdb \
+  -e FERRETDB_POSTGRESQL_URL=postgres://username:password@postgres:5432/ferretdb?pool_max_conns=40 \
   -d ghcr.io/ferretdb/ferretdb:${FERRETDB_VERSION}
 
 if [ $? -ne 0 ]; then
