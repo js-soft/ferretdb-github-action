@@ -1,0 +1,44 @@
+name: Start FerretDB instance
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    name: Start FerretDB
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Start FerretDB
+        uses: ./
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm install
+      - run: npm test
+
+  custom-port:
+    name: Start FerretDB on custom port
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Start FerretDB
+        uses: ./
+        with:
+          ferretdb-port: 12345
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - run: npm install
+      - run: PORT=12345 npm test

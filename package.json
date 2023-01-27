@@ -1,0 +1,31 @@
+{
+  "name": "@js-soft/ferretdb-github-action",
+  "version": "1.0.0",
+  "description": "FerretDB GitHub Action",
+  "keywords": [
+    "github",
+    "github-action",
+    "ferretdb"
+  ],
+  "homepage": "https://github.com/js-soft/ferretdb-github-action",
+  "bugs": {
+    "url": "https://github.com/js-soft/ferretdb-github-action/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/js-soft/ferretdb-github-action.git"
+  },
+  "license": "MIT",
+  "author": "Julian König <julian.koenig@js-soft.com>",
+  "scripts": {
+    "test": "uvu"
+  },
+  "devDependencies": {
+    "expect": "~29.3.1",
+    "mongoose": "~6.7.3",
+    "uvu": "~0.5.6"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
