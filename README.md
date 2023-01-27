@@ -27,11 +27,11 @@ jobs:
           node-version: 18
 
       - name: Start FerretDB
-        uses: js-soft/ferretdb-github-action@1.8.0
+        uses: js-soft/ferretdb-github-action@1.0.0
         with:
           ferretdb-version: 0.8.1
 
-      - run: npm ci
+      - run: npm install
       - run: npm test
 ```
 
