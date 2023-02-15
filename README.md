@@ -6,6 +6,8 @@ This GitHub Action starts a FerretDB instance and a connected PostgreSQL databas
 
 The FerretDB version can be specified using the `ferretdb-version` input. The default version is `latest`. You can find all available FerretDB versions on [GitHub](https://github.com/FerretDB/FerretDB/releases).
 
+The FerretDB telemetry can be enabled using the `ferretdb-telemetry` input. The default value is `disabled`. Learn more about FerretDB's telemetry [here](https://docs.ferretdb.io/telemetry/#configure-telemetry).
+
 ## Usage
 
 ```yaml
