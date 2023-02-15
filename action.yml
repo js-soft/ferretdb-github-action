@@ -16,9 +16,15 @@ inputs:
     required: false
     default: "27017"
 
+  ferretdb-telemetry:
+    description: 'Configure FerretDB telemetry (default "disabled")'
+    required: false
+    default: "disabled"
+
 runs:
   using: "docker"
   image: "Dockerfile"
   args:
     - ${{ inputs.ferretdb-version }}
     - ${{ inputs.ferretdb-port }}
+    - ${{ inputs.ferretdb-telemetry }}
