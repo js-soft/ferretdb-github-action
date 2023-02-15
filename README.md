@@ -29,7 +29,7 @@ jobs:
           node-version: 18
 
       - name: Start FerretDB
-        uses: js-soft/ferretdb-github-action@1.0.1
+        uses: js-soft/ferretdb-github-action@1.0.2
         with:
           ferretdb-version: 0.8.1
 
