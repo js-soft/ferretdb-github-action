@@ -7,11 +7,6 @@ USE_POSTGRES=$4
 
 echo "Starting FerretDB version ${FERRETDB_VERSION} on port ${FERRETDB_PORT}"
 
-echo $USE_POSTGRES
-echo $USE_POSTGRES
-echo $USE_POSTGRES
-echo $USE_POSTGRES
-
 if [ "$USE_POSTGRES" = "true" ]; then
   echo "Starting FerretDB with Postgres"
 
