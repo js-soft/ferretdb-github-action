@@ -33,4 +33,4 @@ runs:
     - ${{ inputs.ferretdb-version }}
     - ${{ inputs.ferretdb-port }}
     - ${{ inputs.ferretdb-telemetry }}
-    - ${{ inputs.ferretdb-postgres }}
+    - ${{ inputs.use-postgres }}
