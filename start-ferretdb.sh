@@ -26,7 +26,7 @@ if [ "$USE_POSTGRES" = "true" ]; then
 else
   echo "Starting FerretDB with sqlite"
 
-  docker run --network ferretdb --name ferretdb \
+  docker run --name ferretdb \
     -p $FERRETDB_PORT:27017 \
     -e FERRETDB_HANDLER=sqlite \
     -e FERRETDB_SQLITE_URL=file:./ \
