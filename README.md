@@ -29,9 +29,9 @@ jobs:
           node-version: 18
 
       - name: Start FerretDB
-        uses: js-soft/ferretdb-github-action@1.0.2
+        uses: js-soft/ferretdb-github-action@1.1.0
         with:
-          ferretdb-version: 0.8.1
+          ferretdb-version: 1.12.1
 
       - run: npm install
       - run: npm test
