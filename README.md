@@ -8,6 +8,8 @@ The FerretDB version can be specified using the `ferretdb-version` input. The de
 
 The FerretDB telemetry can be enabled using the `ferretdb-telemetry` input. The default value is `disabled`. Learn more about FerretDB's telemetry [here](https://docs.ferretdb.io/telemetry/#configure-telemetry).
 
+By default FerretDB will be started using sqlite. By setting `use-postgres` to `true` you can switch the database engine to PostgreSQL.
+
 ## Usage
 
 ```yaml
