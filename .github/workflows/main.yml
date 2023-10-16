@@ -44,7 +44,7 @@ jobs:
       - run: PORT=12345 npm test
 
   postgres-enabled:
-    name: Start FerretDB on custom port
+    name: Start FerretDB with Postgres
 
     runs-on: ubuntu-latest
 
@@ -54,7 +54,7 @@ jobs:
       - name: Start FerretDB
         uses: ./
         with:
-          use-postgres: true
+          use-postgres: "true"
 
       - name: Use Node.js
         uses: actions/setup-node@v3
