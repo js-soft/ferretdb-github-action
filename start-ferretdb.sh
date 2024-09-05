@@ -29,7 +29,6 @@ else
   docker run --name ferretdb \
     -p $FERRETDB_PORT:27017 \
     -e FERRETDB_HANDLER=sqlite \
-    -e FERRETDB_SQLITE_URL=file:./ \
     -e FERRETDB_TELEMETRY=$FERRETDB_TELEMETRY \
     -d ghcr.io/ferretdb/ferretdb:$FERRETDB_VERSION
 fi
