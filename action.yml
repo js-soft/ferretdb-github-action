@@ -21,11 +21,6 @@ inputs:
     required: false
     default: "disabled"
 
-  use-postgres:
-    description: 'Configure FerretDB to use PostgreSQL (default "disabled")'
-    required: false
-    default: "false"
-
 runs:
   using: "docker"
   image: "Dockerfile"
@@ -33,4 +28,3 @@ runs:
     - ${{ inputs.ferretdb-version }}
     - ${{ inputs.ferretdb-port }}
     - ${{ inputs.ferretdb-telemetry }}
-    - ${{ inputs.use-postgres }}

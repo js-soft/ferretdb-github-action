@@ -7,31 +7,19 @@ USE_POSTGRES=$4
 
 echo "Starting FerretDB version ${FERRETDB_VERSION} on port ${FERRETDB_PORT}"
 
-if [ "$USE_POSTGRES" = "true" ]; then
-  echo "Starting FerretDB with Postgres"
+docker network create ferretdb
 
-  docker network create ferretdb
+docker run --network ferretdb --name postgres \
+  -e POSTGRES_USER=username \
+  -e POSTGRES_PASSWORD=password \
+  -e POSTGRES_DB=ferretdb \
+  -d ghcr.io/ferretdb/postgres-documentdb:latest
 
-  docker run --network ferretdb --name postgres \
-    -e POSTGRES_USER=username \
-    -e POSTGRES_PASSWORD=password \
-    -e POSTGRES_DB=ferretdb \
-    -d postgres
-
-  docker run --network ferretdb --name ferretdb \
-    -p $FERRETDB_PORT:27017 \
-    -e FERRETDB_POSTGRESQL_URL=postgres://username:password@postgres:5432/ferretdb?pool_max_conns=40 \
-    -e FERRETDB_TELEMETRY=$FERRETDB_TELEMETRY \
-    -d ghcr.io/ferretdb/ferretdb:$FERRETDB_VERSION
-else
-  echo "Starting FerretDB with sqlite"
-
-  docker run --name ferretdb \
-    -p $FERRETDB_PORT:27017 \
-    -e FERRETDB_HANDLER=sqlite \
-    -e FERRETDB_TELEMETRY=$FERRETDB_TELEMETRY \
-    -d ghcr.io/ferretdb/ferretdb:$FERRETDB_VERSION
-fi
+docker run --network ferretdb --name ferretdb \
+  -p $FERRETDB_PORT:27017 \
+  -e FERRETDB_POSTGRESQL_URL=postgres://username:password@postgres:5432/ferretdb?pool_max_conns=40 \
+  -e FERRETDB_TELEMETRY=$FERRETDB_TELEMETRY \
+  -d ghcr.io/ferretdb/ferretdb:$FERRETDB_VERSION
 
 if [ $? -ne 0 ]; then
   echo "Error starting FerretDB Docker container"
