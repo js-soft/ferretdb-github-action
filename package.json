@@ -21,7 +21,7 @@
     "test": "uvu"
   },
   "devDependencies": {
-    "expect": "~29.7.0",
+    "expect": "~30.0.4",
     "mongoose": "~8.6.1",
     "uvu": "~0.5.6"
   },
