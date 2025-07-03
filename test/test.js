@@ -11,6 +11,15 @@ test("connects to FerretDB", async () => {
   await connection.close()
 })
 
+test("creates a collection and record", async () => {
+  const connection = await Mongoose.createConnection(`mongodb://localhost:${PORT}`).asPromise()
+
+  const collection = await connection.createCollection("TestCollection")
+  await collection.insertOne({ name: "Test Document" })
+
+  await connection.close()
+})
+
 test("fails to connect to non-existent FerretDB instance", async () => {
   await expect(
     Mongoose.connect(`mongodb://localhost:${parseInt(PORT) + 1}`, {
